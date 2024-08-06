@@ -15,16 +15,16 @@ const AddUser = ({ onAddUser }) => {
 
     if (enetredUsername.trim().length === 0 || enetredAge.trim().length === 0) {
       setError({
-        title:"Invalid input",
-        message:"Please enter a valid name and age (non-empty values)"
-      })
+        title: "Invalid input",
+        message: "Please enter a valid name and age (non-empty values)",
+      });
       return;
     }
     if (enetredAge < 1) {
       setError({
-        title:"Invalid input",
-        message:"Please enter a valid age (>0)"
-      })
+        title: "Invalid input",
+        message: "Please enter a valid age (>0)",
+      });
       return;
     }
 
@@ -39,11 +39,13 @@ const AddUser = ({ onAddUser }) => {
 
   return (
     <>
-      {error && <ErrorModel
-        title={error.title}
-        message={error.message}
-        onConfirm={errorHandler}
-      />}
+      {error && (
+        <ErrorModel
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
       ;
       <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
